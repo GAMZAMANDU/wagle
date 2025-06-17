@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/pages/home_page.dart';
+import 'package:my_flutter_app/pages/initial.dart';
 import 'package:my_flutter_app/pages/login_page.dart';
 import 'package:my_flutter_app/pages/sign_up_page.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-            backgroundColor: Colors.black,
+            backgroundColor: Color(0xFFC3913A),
             foregroundColor: Colors.white, // 텍스트 색상을 지정하는 속성
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
@@ -26,8 +27,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: "/login",
+      initialRoute: "/initial",
       routes: {
+        "/initial": (context) => Initial(), // 초기 화면 설정
         "/login": (context) => LoginPage(),
         "/home": (context) => HomePage(),
         "/signup": (context) => SignUpPage(),
