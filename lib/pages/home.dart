@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:flutter/foundation.dart'; // kIsWeb을 위해 추가
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -78,9 +79,20 @@ class _HomePageState extends State<HomePage> {
       await _controller!.setLooping(true);
       print('루핑 설정 완료');
 
-      // 웹에서는 사용자 상호작용 없이 자동재생 불가능
-      // 따라서 자동재생을 시도하지 않고 사용자가 클릭할 때까지 대기
-      print('비디오 준비 완료 - 사용자 클릭을 기다립니다');
+      // 플랫폼 확인 후 자동재생 시도
+      if (kIsWeb) {
+        // 웹에서는 사용자 상호작용 없이 자동재생 불가능
+        print('웹 환경 - 사용자 클릭을 기다립니다');
+      } else {
+        // 모바일에서는 자동재생 시도
+        print('모바일 환경 - 자동재생 시도');
+        try {
+          await _controller!.play();
+          print('자동재생 성공!');
+        } catch (e) {
+          print('자동재생 실패: $e');
+        }
+      }
 
       setState(() => _isLoading = false);
     }
@@ -218,10 +230,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
           ),
-          // 재생 버튼 오버레이 (사용자 상호작용이 필요할 때만 표시)
+          // 재생 버튼 오버레이 (재생되지 않을 때만 표시)
           if (_controller != null &&
               _controller!.value.isInitialized &&
-              (_controller!.value.hasError || !_controller!.value.isPlaying))
+              !_controller!.value.isPlaying)
             Positioned.fill(
               child: Center(
                 child: Container(
@@ -230,13 +242,7 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.black54,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(
-                    _controller!.value.isPlaying
-                        ? Icons.pause
-                        : Icons.play_arrow,
-                    color: Colors.white,
-                    size: 40,
-                  ),
+                  child: Icon(Icons.play_arrow, color: Colors.white, size: 40),
                 ),
               ),
             ),
