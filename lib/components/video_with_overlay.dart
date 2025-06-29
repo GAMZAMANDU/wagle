@@ -47,7 +47,11 @@ class VideoWithOverlayState extends State<VideoWithOverlay> {
     });
 
     try {
-      await _loadVideo(widget.videoAssetPath, isAsset: true);
+      if (widget.videoAssetPath != null) {
+        await _loadVideo(widget.videoAssetPath!, isAsset: true);
+      } else {
+        throw Exception('No video asset path provided');
+      }
     } catch (e) {
       print('Failed to load local video: $e');
       if (widget.fallbackVideoUrl != null) {
@@ -71,9 +75,10 @@ class VideoWithOverlayState extends State<VideoWithOverlay> {
 
   Future<void> _loadVideo(String videoSource, {required bool isAsset}) async {
     _controller?.dispose();
-    _controller = isAsset
-        ? VideoPlayerController.asset(videoSource)
-        : VideoPlayerController.networkUrl(Uri.parse(videoSource));
+    _controller =
+        isAsset
+            ? VideoPlayerController.asset(videoSource)
+            : VideoPlayerController.networkUrl(Uri.parse(videoSource));
 
     _controller!.addListener(() {
       if (mounted) {
@@ -158,25 +163,26 @@ class VideoWithOverlayState extends State<VideoWithOverlay> {
       child: Stack(
         children: [
           Positioned.fill(
-            child: _controller != null && _controller!.value.isInitialized
-                ? FittedBox(
-                    fit: BoxFit.cover,
-                    child: SizedBox(
-                      width: _controller!.value.size.width,
-                      height: _controller!.value.size.height,
-                      child: VideoPlayer(_controller!),
-                    ),
-                  )
-                : Container(
-                    color: Colors.grey,
-                    child: const Center(
-                      child: Text(
-                        'Video is preparing...',
-                        style: TextStyle(color: Colors.white),
-                        textAlign: TextAlign.center,
+            child:
+                _controller != null && _controller!.value.isInitialized
+                    ? FittedBox(
+                      fit: BoxFit.cover,
+                      child: SizedBox(
+                        width: _controller!.value.size.width,
+                        height: _controller!.value.size.height,
+                        child: VideoPlayer(_controller!),
+                      ),
+                    )
+                    : Container(
+                      color: Colors.grey,
+                      child: const Center(
+                        child: Text(
+                          'Video is preparing...',
+                          style: TextStyle(color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
-                  ),
           ),
           if (_controller != null &&
               _controller!.value.isInitialized &&
@@ -189,8 +195,11 @@ class VideoWithOverlayState extends State<VideoWithOverlay> {
                     color: Colors.black54,
                     shape: BoxShape.circle,
                   ),
-                  child:
-                      const Icon(Icons.play_arrow, color: Colors.white, size: 40),
+                  child: const Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                    size: 40,
+                  ),
                 ),
               ),
             ),

@@ -47,6 +47,29 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(height: 20),
+
+                // 화살표 버튼
+                Container(
+                  width: double.infinity,
+                  height: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // 버튼 클릭 액션
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFB36843),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
