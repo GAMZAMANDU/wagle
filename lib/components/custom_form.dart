@@ -6,7 +6,7 @@ class CustomForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>(); // 1. 글로벌 key
   final String buttonText; // 추가: 버튼 텍스트
 
-  CustomForm({Key? key, this.buttonText = "Login"}) : super(key: key);
+  CustomForm({super.key, this.buttonText = "Login"});
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:my_flutter_app/size.dart';
 class CustomTextFormField extends StatelessWidget {
   final String text;
 
-  const CustomTextFormField(this.text, {Key? key}) : super(key: key);
+  const CustomTextFormField(this.text, {super.key});
 
   @override
   Widget build(BuildContext context) {

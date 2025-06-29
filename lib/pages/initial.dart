@@ -22,16 +22,14 @@ class _InitialState extends State<Initial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: const Color(0xFFC3913A), // 배경색 설정
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 86),
-          child: Center(
-            child: SvgPicture.asset(
-              'lib/assets/Wagle.svg',
-              width: 200,
-              height: 200,
-            ),
+      backgroundColor: const Color(0xFFB36843), // Scaffold 배경색 설정
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 86),
+        child: Center(
+          child: SvgPicture.asset(
+            'lib/assets/Wagle.svg',
+            width: 200,
+            height: 200,
           ),
         ),
       ),

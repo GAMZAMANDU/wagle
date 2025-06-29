@@ -4,7 +4,7 @@ import 'package:my_flutter_app/components/logo.dart';
 import 'package:my_flutter_app/size.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
