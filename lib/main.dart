@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/pages/home.dart';
 import 'package:my_flutter_app/pages/initial.dart';
-import 'package:my_flutter_app/pages/call.dart';
-import 'package:my_flutter_app/pages/sign_up_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,9 +31,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/initial",
       routes: {
         "/initial": (context) => Initial(), // 초기 화면 설정
-        "/login": (context) => LoginPage(),
         "/home": (context) => HomePage(),
-        "/signup": (context) => SignUpPage(),
       },
     );
   }
