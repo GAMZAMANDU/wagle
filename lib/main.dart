@@ -14,12 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // 1. 테마 설정
       theme: ThemeData(
+        fontFamily: 'Pretendard Variable', // 기본 폰트
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             backgroundColor: Color(0xFFC3913A),
-            foregroundColor: Colors.white, // 텍스트 색상을 지정하는 속성
+            foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),

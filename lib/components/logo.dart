@@ -10,11 +10,7 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset(
-          "assets/logo.svg",
-          height: 70,
-          width: 70,
-        ),
+        SvgPicture.asset("lib/assets/Wagle.svg", height: 70, width: 70),
         Text(
           title,
           style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),

@@ -16,24 +16,24 @@ class LoginPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: ListView(
-            children: [
-              SizedBox(height: xlargeGap),
-              Logo("Login"),
-              SizedBox(height: largeGap),
-              CustomForm(),
-              SizedBox(height: largeGap),
-              SizedBox(
-                child: TextButton(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Logo("Login"),
+                SizedBox(height: 40),
+                CustomForm(),
+                SizedBox(height: 30),
+                TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, "/signup");
                   },
                   child: Text("Sign Up"),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
