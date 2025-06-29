@@ -204,8 +204,8 @@ class VideoWithOverlayState extends State<VideoWithOverlay> {
               ),
             ),
           Positioned(
-            left: 20,
-            bottom: 20,
+            left: 24,
+            bottom: 24,
             right: 20,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -214,17 +214,31 @@ class VideoWithOverlayState extends State<VideoWithOverlay> {
                   '${widget.name}. Age ${widget.age}',
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 28,
+                    fontSize: 30,
                     fontFamily: 'Zodiak',
                     fontWeight: FontWeight.bold,
+                    shadows: [
+                      Shadow(
+                        blurRadius: 12,
+                        color: Color.fromARGB(183, 0, 0, 0),
+                        // offset: Offset(2, 2),
+                      ),
+                    ],
                   ),
                 ),
                 Text(
                   widget.description,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w400,
+                    shadows: [
+                      Shadow(
+                        blurRadius: 12,
+                        color: Color.fromARGB(183, 0, 0, 0),
+                        // offset: Offset(2, 2),
+                      ),
+                    ],
                   ),
                 ),
               ],
