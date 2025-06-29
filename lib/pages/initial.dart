@@ -26,11 +26,7 @@ class _InitialState extends State<Initial> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 86),
         child: Center(
-          child: SvgPicture.asset(
-            'lib/assets/Wagle.svg',
-            width: 200,
-            height: 200,
-          ),
+          child: SvgPicture.asset('assets/Wagle.svg', width: 200, height: 200),
         ),
       ),
     );

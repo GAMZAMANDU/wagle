@@ -8,12 +8,15 @@ void main() {
   runApp(const MyApp());
 }
 
+final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorObservers: [routeObserver],
       theme: ThemeData(
         fontFamily: 'Pretendard Variable', // 기본 폰트
         textButtonTheme: TextButtonThemeData(

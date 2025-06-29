@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('lib/assets/place/cafe.png'),
+            image: AssetImage('assets/place/cafe.png'),
             fit: BoxFit.cover,
           ),
         ),
