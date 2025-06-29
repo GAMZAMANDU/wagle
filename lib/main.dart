@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/pages/home.dart';
 import 'package:my_flutter_app/pages/initial.dart';
+import 'package:my_flutter_app/pages/talk.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/initial": (context) => Initial(), // 초기 화면 설정
         "/home": (context) => HomePage(),
+        "/talk": (context) => TalkPage(),
       },
     );
   }

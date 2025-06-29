@@ -110,12 +110,12 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 12),
 
                 // 화살표 버튼
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: 60,
                   child: ElevatedButton(
                     onPressed: () {
-                      // 버튼 클릭 액션
+                      Navigator.pushNamed(context, '/talk');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFB36843),
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(18),
                       ),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_forward,
                       color: Colors.white,
                       size: 24,
