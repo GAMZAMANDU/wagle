@@ -67,6 +67,7 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20,
                       fontFamily: 'Zodiak',
                       fontWeight: FontWeight.w900,
+                      height: 1.18,
                     ),
                   ),
                 ),
@@ -106,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 12),
 
                 // 화살표 버튼
                 Container(
