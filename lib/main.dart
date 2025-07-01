@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:my_flutter_app/pages/home.dart';
 import 'package:my_flutter_app/pages/initial.dart';
 import 'package:my_flutter_app/pages/talk.dart';
 
-void main() {
+Future<void> main() async {
+  try {
+    print('🚀 Starting app initialization...');
+    await dotenv.load(fileName: ".env");
+    print('✅ .env file loaded successfully');
+    print('📋 Available environment variables:');
+    dotenv.env.forEach((key, value) {
+      print(
+        '   - $key: ${value.length > 10 ? "${value.substring(0, 10)}..." : value}',
+      );
+    });
+  } catch (e) {
+    print('❌ Failed to load .env file: $e');
+  }
   runApp(const MyApp());
 }
 
